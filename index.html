@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Eshal ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cinzel:wght@500;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+:root{
+--red:#ff1744;
+--darkred:#8b001e;
+--pink:#ff6b91;
+--white:#fff0f3;
+}
+
+body{
+min-height:100vh;
+background:radial-gradient(ellipse at center,#35000d 0%,#150006 55%,#050003 100%);
+color:white;
+font-family:'Poppins',sans-serif;
+display:flex;
+align-items:center;
+justify-content:center;
+overflow:hidden;
+}
+
+#particles{
+position:fixed;
+inset:0;
+pointer-events:none;
+overflow:hidden;
+}
+
+.particle{
+position:absolute;
+bottom:-30px;
+animation:rise linear forwards;
+opacity:.8;
+}
+
+@keyframes rise{
+to{transform:translateY(-110vh) rotate(720deg);opacity:0}
+}
+
+.glow{
+position:fixed;
+width:250px;
+height:250px;
+background:#ff003344;
+filter:blur(100px);
+border-radius:50%;
+animation:glow 4s infinite alternate;
+pointer-events:none;
+}
+
+@keyframes glow{
+to{transform:scale(1.5);opacity:.4}
+}
+
+.book{
+width:min(92%,430px);
+height:min(700px,91vh);
+position:relative;
+z-index:2;
+}
+
+.card{
+display:none;
+width:100%;
+height:100%;
+overflow-y:auto;
+position:relative;
+padding:40px 23px;
+border:1px solid #ff4168;
+border-radius:25px;
+background:linear-gradient(145deg,#200008,#090004 75%);
+box-shadow:0 0 20px #ff003355,0 0 60px #b0003333,inset 0 0 30px #ff174411;
+text-align:center;
+align-items:center;
+justify-content:center;
+flex-direction:column;
+}
+
+.card:before{
+content:"";
+position:absolute;
+inset:8px;
+border:1px solid #ff557044;
+border-radius:18px;
+pointer-events:none;
+}
+
+.card.active{
+display:flex;
+animation:open .8s cubic-bezier(.2,.8,.2,1);
+}
+
+@keyframes open{
+0%{opacity:0;transform:perspective(800px) rotateY(30deg) scale(.75)}
+100%{opacity:1;transform:perspective(800px) rotateY(0) scale(1)}
+}
+
+.counter{
+position:absolute;
+top:22px;
+right:22px;
+color:#ff9ab0;
+font-size:11px;
+letter-spacing:3px;
+}
+
+h1{
+font-family:'Great Vibes',cursive;
+font-size:clamp(45px,12vw,65px);
+font-weight:400;
+color:#ff426a;
+text-shadow:0 0 10px #ff1744,0 0 30px #ff1744;
+margin:15px 0;
+}
+
+h2{
+font-family:'Cinzel',serif;
+font-size:20px;
+color:#ffd3dc;
+margin:13px 0;
+}
+
+p{
+color:#e6b6c1;
+font-size:13px;
+line-height:2;
+}
+
+.emoji{
+font-size:65px;
+margin:12px;
+display:inline-block;
+}
+
+.btn{
+padding:13px 25px;
+margin-top:24px;
+border:1px solid #ff6a88;
+border-radius:30px;
+color:white;
+font-weight:600;
+font-family:'Poppins';
+font-size:13px;
+letter-spacing:1px;
+background:linear-gradient(120deg,#8b001e,#ff1744,#a00029);
+box-shadow:0 0 15px #ff174477,0 0 30px #ff174422;
+cursor:pointer;
+transition:.3s;
+}
+
+.btn:hover{
+transform:scale(1.08);
+box-shadow:0 0 25px #ff1744,0 0 50px #ff174477;
+}
+
+.btn:active{transform:scale(.94)}
+
+.heart{
+font-size:75px;
+animation:heartbeat 1s infinite;
+filter:drop-shadow(0 0 15px red);
+}
+
+@keyframes heartbeat{
+50%{transform:scale(1.3)}
+}
+
+.rose{
+font-size:85px;
+animation:sway 2s infinite ease-in-out;
+filter:drop-shadow(0 0 15px #ff1744);
+}
+
+@keyframes sway{
+50%{transform:rotate(15deg) scale(1.1)}
+}
+
+.photo{
+width:190px;
+height:230px;
+border-radius:100px 100px 25px 25px;
+object-fit:cover;
+border:3px solid #ff426a;
+box-shadow:0 0 20px #ff1744,0 0 45px #ff174455;
+margin:20px;
+animation:photo 3s infinite alternate;
+}
+
+@keyframes photo{
+to{transform:translateY(-8px);box-shadow:0 0 35px #ff1744}
+}
+
+.letter{
+border:1px solid #ff426a;
+background:#41001255;
+border-radius:15px;
+padding:18px;
+box-shadow:inset 0 0 20px #ff174422;
+}
+
+.spin{
+animation:spin 5s linear infinite;
+}
+
+@keyframes spin{to{transform:rotate(360deg)}}
+
+.bounce{
+animation:bounce 1.5s infinite;
+}
+
+@keyframes bounce{
+50%{transform:translateY(-15px)}
+}
+
+/* GIFT */
+
+.gift{
+font-size:105px;
+cursor:pointer;
+filter:drop-shadow(0 0 20px #ff1744);
+animation:giftShake 1s infinite;
+}
+
+@keyframes giftShake{
+0%,100%{transform:rotate(0)}
+25%{transform:rotate(-8deg)}
+75%{transform:rotate(8deg)}
+}
+
+#surprise{
+display:none;
+animation:reveal .9s ease;
+}
+
+#surprise.show{display:block}
+
+@keyframes reveal{
+from{opacity:0;transform:scale(0) rotate(-20deg)}
+to{opacity:1;transform:scale(1) rotate(0)}
+}
+
+/* CAKE */
+
+.cake{
+width:155px;
+height:105px;
+position:relative;
+margin:40px auto 20px;
+}
+
+.cake-bottom{
+position:absolute;
+bottom:0;
+width:155px;
+height:65px;
+background:linear-gradient(90deg,#8d001e,#ed315b,#8d001e);
+border-radius:12px 12px 20px 20px;
+box-shadow:0 8px 20px #ff174444;
+}
+
+.cake-top{
+position:absolute;
+top:22px;
+width:155px;
+height:30px;
+border-radius:50%;
+background:#ff8ca8;
+z-index:2;
+}
+
+.candle{
+position:absolute;
+top:-20px;
+left:74px;
+width:9px;
+height:45px;
+background:repeating-linear-gradient(45deg,white,white 5px,#ff4168 5px,#ff4168 10px);
+z-index:3;
+}
+
+.flame{
+position:absolute;
+top:-20px;
+left:-5px;
+font-size:20px;
+animation:flicker .3s infinite alternate;
+}
+
+@keyframes flicker{
+to{transform:scale(1.2) rotate(8deg)}
+}
+
+.cake.cut .cake-bottom{
+animation:cutcake .9s forwards;
+}
+
+@keyframes cutcake{
+to{transform:translateX(40px) rotate(12deg);opacity:.4}
+}
+
+#cakeMessage{margin-top:20px}
+
+/* BALLOONS */
+
+.balloon{
+font-size:45px;
+display:inline-block;
+animation:float 2s infinite alternate;
+}
+
+@keyframes float{
+to{transform:translateY(-20px)}
+}
+
+/* PROGRESS */
+
+.progress{
+height:4px;
+width:70%;
+background:#4a1322;
+border-radius:10px;
+overflow:hidden;
+margin-top:24px;
+}
+
+.bar{
+height:100%;
+background:#ff426a;
+box-shadow:0 0 10px red;
+transition:width .5s;
+}
+
+.card::-webkit-scrollbar{width:3px}
+.card::-webkit-scrollbar-thumb{background:#ff426a}
+
+@media(max-width:480px){
+.book{height:88vh}
+.card{padding:38px 20px}
+p{font-size:12px}
+h2{font-size:17px}
+}
+</style>
+</head>
+
+<body>
+
+<div class="glow" style="top:5%;left:5%"></div>
+<div class="glow" style="bottom:5%;right:5%"></div>
+<div id="particles"></div>
+
+<main class="book">
+
+<!-- 1 -->
+<section class="card active">
+<div class="counter">01 / 10</div>
+<div class="emoji heart">❤️</div>
+<h1>Hey Eshal!</h1>
+<h2>A Special Day For Someone Special</h2>
+<p>Tonight is not an ordinary night...</p>
+<p>Something beautiful is waiting for you.</p>
+<button class="btn" onclick="next(1)">OPEN MY SURPRISE ♥</button>
+</section>
+
+<!-- 2 -->
+<section class="card">
+<div class="counter">02 / 10</div>
+<div class="rose">🌹</div>
+<h1>My Beautiful Eshal</h1>
+
+<!-- Yahan apni picture ka naam lagana -->
+
+<p>Some people make the world more beautiful just by being in it.</p>
+<p>And you're one of them. ❤️</p>
+<button class="btn" onclick="next(2)">NEXT DARLING ✨</button>
+</section>
+
+<!-- 3 -->
+<section class="card">
+<div class="counter">03 / 10</div>
+<div class="emoji bounce">🖤</div>
+<h1>Happy Birthday</h1>
+<h2>MY QUEEN ESHAL</h2>
+<p>May your smile always shine brighter than the stars.</p>
+<p>May every dream become a beautiful reality.</p>
+<div class="emoji">🥀</div>
+<button class="btn" onclick="next(3)">KEEP GOING ❤️</button>
+</section>
+
+<!-- 4 -->
+<section class="card">
+<div class="counter">04 / 10</div>
+<div class="emoji spin">💌</div>
+<h1>A Letter For You</h1>
+<div class="letter">
+<h2>Dear Eshal,</h2>
+<p>On your birthday, I wish you endless happiness, beautiful memories, peaceful days and a heart full of love.</p>
+<p>Never stop being your wonderful self.</p>
+<p>You're precious. ❤️</p>
+</div>
+<button class="btn" onclick="next(4)">READ MORE 💗</button>
+</section>
+
+<!-- 5 -->
+<section class="card">
+<div class="counter">05 / 10</div>
+<div class="emoji">🌙</div>
+<h1>Make A Wish</h1>
+<h2>Close Your Eyes!</h2>
+<p>Think of something your heart truly desires.</p>
+<p>Let this new year of your life bring you closer to it.</p>
+<div class="emoji sparkle">✨</div>
+<button class="btn" onclick="next(5)">MY WISH IS MADE ❤️</button>
+</section>
+
+<!-- 6 -->
+<section class="card">
+<div class="counter">06 / 10</div>
+<h1>A Secret Gift!</h1>
+<h2>Something is hiding inside...</h2>
+
+<div class="gift" id="gift" onclick="openGift()">🎁</div>
+
+<p id="hint">Tap the gift to unlock your surprise!</p>
+
+<div id="surprise">
+<div class="emoji heart">💝</div>
+<h2>A Million Virtual Roses!</h2>
+<p>🌹🌹🌹🌹🌹</p>
+<p>Your surprise is a lifetime supply of happiness, love and beautiful memories!</p>
+<h2>YOU DESERVE THE BEST ❤️</h2>
+</div>
+
+<button class="btn" onclick="next(6)">NEXT SURPRISE 🖤</button>
+</section>
+
+<!-- 7 -->
+<section class="card">
+<div class="counter">07 / 10</div>
+<div class="emoji bounce">🎂</div>
+<h1>It's Cake Time!</h1>
+<h2>One Special Cake For You</h2>
+<p>Before cutting your cake...</p>
+<p>Don't forget to make your sweetest wish!</p>
+<div class="emoji">🕯️❤️</div>
+<button class="btn" onclick="next(7)">BRING MY CAKE!</button>
+</section>
+
+<!-- 8 -->
+<section class="card">
+<div class="counter">08 / 10</div>
+<h1>Happy Birthday!</h1>
+
+<div class="cake" id="cake">
+<div class="candle" id="candle">
+<span class="flame" id="flame">🔥</span>
+</div>
+<div class="cake-top"></div>
+<div class="cake-bottom"></div>
+</div>
+
+<h2 id="cakeMessage">Make A Wish, Eshal!</h2>
+<p>Tap below to cut your birthday cake!</p>
+
+<button class="btn" id="cutBtn" onclick="cutCake()">CUT THE CAKE 🔪</button>
+<button class="btn" onclick="next(8)">CONTINUE ❤️</button>
+</section>
+
+<!-- 9 -->
+<section class="card">
+<div class="counter">09 / 10</div>
+<div class="emoji spin">🌹</div>
+<h1>Stay Blessed</h1>
+<h2>Forever & Always</h2>
+<p>May your life be filled with countless reasons to smile.</p>
+<p>May your future be even more beautiful than your dreams.</p>
+<div class="emoji">🖤❤️</div>
+<button class="btn" onclick="next(9)">ONE LAST THING...</button>
+</section>
+
+<!-- 10 -->
+<section class="card">
+<div class="counter">10 / 10</div>
+<div class="emoji heart final">❤️</div>
+<h1>Happy Birthday Eshal!</h1>
+<h2>My Special Birthday Star</h2>
+<div class="letter">
+<p>May this birthday be the beginning of a magical new chapter.</p>
+<p>Keep smiling, keep shining and always remember how special you are.</p>
+<h2>Lots Of Love! 🌹</h2>
+</div>
+<div class="emoji">🎂🥀🖤</div>
+<button class="btn" onclick="restart()">REPLAY THE MAGIC ↻</button>
+</section>
+
+<div class="progress">
+<div class="bar" id="bar"></div>
+</div>
+
+</main>
+
+<script>
+let current=0;
+const cards=document.querySelectorAll('.card');
+
+function next(n){
+if(n>=cards.length)return;
+
+cards[current].classList.remove('active');
+current=n;
+cards[current].classList.add('active');
+
+document.getElementById('bar').style.width=
+((current+1)*10)+'%';
+
+confetti();
+}
+
+function restart(){
+cards[current].classList.remove('active');
+current=0;
+cards[0].classList.add('active');
+
+document.getElementById('bar').style.width='10%';
+
+// Reset gift
+document.getElementById('gift').style.display='inline-block';
+document.getElementById('gift').classList.remove('opened');
+document.getElementById('surprise').classList.remove('show');
+document.getElementById('hint').style.display='block';
+
+// Reset cake
+document.getElementById('cake').classList.remove('cut');
+document.getElementById('flame').style.display='block';
+document.getElementById('cakeMessage').innerText='Make A Wish, Eshal!';
+document.getElementById('cutBtn').disabled=false;
+document.getElementById('cutBtn').style.opacity='1';
+}
+
+function openGift(){
+const gift=document.getElementById('gift');
+
+if(gift.classList.contains('opened'))return;
+gift.classList.add('opened');
+
+gift.style.animation='none';
+gift.style.transform='scale(0) rotate(360deg)';
+
+setTimeout(()=>{
+gift.style.display='none';
+document.getElementById('hint').style.display='none';
+document.getElementById('surprise').classList.add('show');
+confetti();
+},650);
+}
+
+function cutCake(){
+const cake=document.getElementById('cake');
+
+if(cake.classList.contains('cut'))return;
+
+cake.classList.add('cut');
+
+document.getElementById('flame').style.display='none';
+
+document.getElementById('cakeMessage').innerText=
+'YAYYYY! HAPPY BIRTHDAY ESHAL! ❤️';
+
+document.getElementById('cutBtn').disabled=true;
+document.getElementById('cutBtn').style.opacity='.5';
+
+confetti();
+}
+
+function confetti(){
+const icons=['❤️','🌹','✨','💗','🥀','🎀','💕','⭐'];
+
+for(let i=0;i<35;i++){
+const el=document.createElement('div');
+el.className='particle';
+el.innerText=icons[Math.floor(Math.random()*icons.length)];
+el.style.left=Math.random()*100+'vw';
+el.style.fontSize=(15+Math.random()*22)+'px';
+el.style.animationDuration=(2+Math.random()*3)+'s';
+
+document.body.appendChild(el);
+
+setTimeout(()=>el.remove(),5000);
+}
+}
+
+// Floating romantic particles
+setInterval(()=>{
+const el=document.createElement('div');
+el.className='particle';
+el.innerText=['❤️','🥀','✨','🖤'][Math.floor(Math.random()*4)];
+el.style.left=Math.random()*100+'vw';
+el.style.fontSize='20px';
+el.style.animationDuration='7s';
+
+document.getElementById('particles').appendChild(el);
+setTimeout(()=>el.remove(),7000);
+},450);
+
+</script>
+</body>
+</html>
